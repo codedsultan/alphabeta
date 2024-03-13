@@ -12,6 +12,31 @@
   "author": "Olusegun Ibraheem",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.18.3"
+    "axios": "^1.6.7",
+    "bcrypt": "^5.1.1",
+    "body-parser": "^1.20.2",
+    "cloudinary": "^2.0.3",
+    "compression": "^1.7.4",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.18.3",
+    "firebase-admin": "^12.0.0",
+    "helmet": "^7.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.2.1",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.5-lts.1",
+    "node-cron": "^3.0.3",
+    "otp-generator": "^4.0.1",
+    "url": "^0.11.3",
+    "validator": "^13.11.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  },
+  "engines": {
+    "node": ">=16.x",
+    "pnpm": ">=7.x",
+    "npm": ">=8.x"
   }
 }
