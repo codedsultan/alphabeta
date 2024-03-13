@@ -4,8 +4,14 @@
   "description": "Olusegun's project AlphaBeta",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon ./src/server.js",
+    "start": "node ./src/server.js",
+    "push": "git add -A && git commit -m 'update changes and bug fixes' && git push origin main"
   },
-  "author": "",
-  "license": "ISC"
+  "author": "Olusegun Ibraheem",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.3"
+  }
 }
