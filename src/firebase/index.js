@@ -3,7 +3,7 @@ import dotenv from "dotenv";
 
 if (process.env.NODE_ENV !== "production") {
   dotenv.config({
-    path: "src/config.env",
+    path: "src/config/config.env",
   });
 }
 
@@ -136,24 +136,6 @@ export const sendNotificationToMultipleTopics = async (topics, title, body) => {
 };
 
 
-// Import the functions you need from the SDKs you need
-// import { initializeApp } from "firebase/app";
-// import { getAnalytics } from "firebase/analytics";
-// // TODO: Add SDKs for Firebase products that you want to use
-// // https://firebase.google.com/docs/web/setup#available-libraries
 
-// // Your web app's Firebase configuration
-// // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-// const firebaseConfig = {
-//   apiKey: "AIzaSyDOaLhpK37GycPqTrKjqIk0Klk1phJ0bz8",
-//   authDomain: "alphabeta-c3925.firebaseapp.com",
-//   projectId: "alphabeta-c3925",
-//   storageBucket: "alphabeta-c3925.appspot.com",
-//   messagingSenderId: "532210525159",
-//   appId: "1:532210525159:web:60b647389cc3f1e3fed342",
-//   measurementId: "G-4B56X06DV5"
-// };
 
-// // Initialize Firebase
-// const app = initializeApp(firebaseConfig);
-// const analytics = getAnalytics(app);
+

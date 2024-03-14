@@ -2,7 +2,7 @@ import sgMail from "@sendgrid/mail";
 import jwt from "jsonwebtoken";
 import optGenerator from "otp-generator";
 import models from "../models/index.js";
-import ResponseMessages from "../contants/responseMessages.js";
+import ResponseMessages from "../constants/responseMessages.js";
 import axios from "axios";
 
 const utility = {};

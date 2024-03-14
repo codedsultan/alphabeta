@@ -3,7 +3,7 @@ import ErrorHandler from "../../../../helpers/errorHandler.js";
 import models from "../../../../models/index.js";
 import utility from "../../../../utils/utility.js";
 import validators from "../../../../utils/validators.js";
-import ResponseMessages from "../../../../contants/responseMessages.js";
+import ResponseMessages from "../../../../constants/responseMessages.js";
 
 /// @route  POST /api/v1/register
 

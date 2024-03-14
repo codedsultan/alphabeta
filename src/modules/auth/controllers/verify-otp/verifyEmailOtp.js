@@ -3,7 +3,7 @@ import ErrorHandler from "../../../../helpers/errorHandler.js";
 import models from "../../../../models/index.js";
 import validators from "../../../../utils/validators.js";
 import dateUtility from "../../../../utils/dateUtil.js";
-import ResponseMessages from "../../../../contants/responseMessages.js";
+import ResponseMessages from "../../../../constants/responseMessages.js";
 
 /// VERIFY EMAIL OTP ///
 

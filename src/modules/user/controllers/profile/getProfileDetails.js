@@ -1,6 +1,6 @@
 import catchAsyncError from "../../../../helpers/catchAsyncError.js";
 import utility from "../../../../utils/utility.js";
-import ResponseMessages from "../../../../contants/responseMessages.js";
+import ResponseMessages from "../../../../constants/responseMessages.js";
 
 /// @route GET /api/v1/me
 

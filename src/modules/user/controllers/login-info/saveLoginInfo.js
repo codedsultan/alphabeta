@@ -1,6 +1,6 @@
 import catchAsyncError from "../../../../helpers/catchAsyncError.js";
 import ErrorHandler from "../../../../helpers/errorHandler.js";
-import ResponseMessages from "../../../../contants/responseMessages.js";
+import ResponseMessages from "../../../../constants/responseMessages.js";
 import models from "../../../../models/index.js";
 import utility from "../../../../utils/utility.js";
 

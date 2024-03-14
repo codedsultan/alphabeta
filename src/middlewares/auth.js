@@ -2,7 +2,7 @@ import jwt from "jsonwebtoken";
 import ErrorHandler from "../helpers/errorHandler.js";
 import catchAsyncError from "../helpers/catchAsyncError.js";
 import models from "../models/index.js";
-import ResponseMessages from "../contants/responseMessages.js";
+import ResponseMessages from "../constants/responseMessages.js";
 
 const authMiddleware = {};
 

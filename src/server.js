@@ -23,17 +23,76 @@ cloudinary.config({
 const port = process.env.PORT || 4000;
 
 // Connecting to DB
-const connectToDatabase = function () {
+const connectToDatabase = async () => {
   console.log("[database]: connecting to MongoDB...");
-  mongoose.connect(
-    process.env.MONGO_URI,
-    {
-      dbName: process.env.DB_NAME,
-      autoIndex: true,
-      socketTimeoutMS: 45000,
-      serverSelectionTimeoutMS: 60000,
-    },
-    function (err) {
+  
+  try {
+    mongoose.set('strictQuery', false)
+    mongoose.connect(
+      process.env.MONGO_URI,
+      {
+        dbName: process.env.DB_NAME,
+        autoIndex: true,
+        socketTimeoutMS: 45000,
+        serverSelectionTimeoutMS: 60000,
+      },     
+    );
+
+    console.log(`[database]: connected successfully to MongoDB`);
+
+        // Init Modules
+        initModules(app);
+
+        // Health Route
+        app.route("/api/v1/health").get(function (req, res) {
+          res.status(200).json({
+            success: true,
+            server: "online",
+            message: "server is up and running",
+          });
+        });
+
+      // Error Handler
+      closeApp(app);
+
+      const server = app.listen(port, (err) => {
+        if (err) {
+          console.log(
+            `[server] could not start http server on port: ${port}`
+          );
+          return;
+        }
+        console.log(`[server] running on port: ${port}`);
+      });
+
+      // // Init Web Socket
+      // initWebSocket(server);
+
+      // Handling Uncaught Exception
+      process.on("uncaughtException", (err) => {
+        console.log(`Error: ${err.message}`);
+        console.log(`[server] shutting down due to Uncaught Exception`);
+
+        server.close(() => {
+          process.exit(1);
+        });
+      });
+
+      // Unhandled Promise Rejection
+      process.on("unhandledRejection", (err) => {
+        console.log(`Error: ${err.message}`);
+        console.log(
+          `[server] shutting down due to Unhandled Promise Rejection`
+        );
+
+        server.close(() => {
+          process.exit(1);
+        });
+      });
+    
+  }
+  catch(err){
+    
       if (err) {
         // Health Route
         app.route("/api/v1/health").get(function (req, res) {
@@ -68,61 +127,11 @@ const connectToDatabase = function () {
           connectToDatabase();
         }, 10000);
         return;
-      } else {
-        console.log(`[database]: connected successfully to MongoDB`);
+      } 
+  }
 
-        // Init Modules
-        initModules(app);
-
-        // Health Route
-        app.route("/api/v1/health").get(function (req, res) {
-          res.status(200).json({
-            success: true,
-            server: "online",
-            message: "server is up and running",
-          });
-        });
-
-        // Error Handler
-        closeApp(app);
-
-        const server = app.listen(port, (err) => {
-          if (err) {
-            console.log(
-              `[server] could not start http server on port: ${port}`
-            );
-            return;
-          }
-          console.log(`[server] running on port: ${port}`);
-        });
-
-        // // Init Web Socket
-        // initWebSocket(server);
-
-        // Handling Uncaught Exception
-        process.on("uncaughtException", (err) => {
-          console.log(`Error: ${err.message}`);
-          console.log(`[server] shutting down due to Uncaught Exception`);
-
-          server.close(() => {
-            process.exit(1);
-          });
-        });
-
-        // Unhandled Promise Rejection
-        process.on("unhandledRejection", (err) => {
-          console.log(`Error: ${err.message}`);
-          console.log(
-            `[server] shutting down due to Unhandled Promise Rejection`
-          );
-
-          server.close(() => {
-            process.exit(1);
-          });
-        });
-      }
-    }
-  );
+          
+        
 };
 
 // Starting Server
