@@ -29,12 +29,15 @@ const validateUser = catchAsyncError(async (req, res, next) => {
     if (!otp) {
         return next(new ErrorHandler(ResponseMessages.OTP_REQUIRED, 400));
     }
-
+    // console.log(otp)
     if (otp.length !== 6) {
         return next(new ErrorHandler(ResponseMessages.INVALID_OTP, 400));
     }
 
     const otpObj = await models.OTP.findOne({ otp });
+
+    // console.log(otpObj)
+    // console.log(!otpObj._id)
 
     if (!otpObj) {
         return next(new ErrorHandler(ResponseMessages.INCORRECT_OTP, 400));
@@ -47,8 +50,8 @@ const validateUser = catchAsyncError(async (req, res, next) => {
     if (dateUtility.compare(otpObj.expiresAt, new Date()) !== 1) {
         return next(new ErrorHandler(ResponseMessages.OTP_EXPIRED, 400));
     }
-
-    if (otpObj.email !== email || otpObj.phone !== phone) {
+    // console.log(otpObj.email !== email || otpObj.phone !== phone)
+    if (email && otpObj.email !== email || phone && otpObj.phone !== phone) {
         return next(new ErrorHandler(ResponseMessages.INCORRECT_OTP, 400));
     }
 

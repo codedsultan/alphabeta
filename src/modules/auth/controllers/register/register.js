@@ -103,24 +103,21 @@ const register = catchAsyncError(async (req, res, next) => {
   <p>
     Thank you so much for creating an account with us. We're glad you're here!
   </p>
-  <p>
-    To learn more about our product and services, visit our website
-    <a href="https://www.nixlab.co.in" target="_blank">here</a>.
-  </p>
+  
   <p>
     For any queries, feel free to contact us at
-    <a href="mailto:nixlab.in@gmail.com" target="_blank">nixlab.in@gmail.com</a>.
+    <a href="mailto:codesultan369@gmail.com" target="_blank">codesultan369@gmail.com</a>.
   </p>
   <p>This is a auto-generated email. Please do not reply to this email.</p>
   <p>
     Regards, <br />
-    NixLab Technologies Team
+    AlphaBeta Team
   </p>`;
 
   try {
     await utility.sendEmail({
       email: user.email,
-      subject: `Welcome to NixLab`,
+      subject: `Welcome to AlphaBeta`,
       htmlMessage: htmlMessage,
     });
   } catch (err) {

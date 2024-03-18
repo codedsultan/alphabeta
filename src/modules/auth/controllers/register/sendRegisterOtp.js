@@ -39,21 +39,21 @@ const sendRegisterOtp = catchAsyncError(async (req, res, next) => {
     <p>If you have not requested this email then, please ignore it.</p>
     <p>
     For any queries, feel free to contact us at
-    <a href="mailto:nixlab.in@gmail.com" target="_blank">nixlab.in@gmail.com</a>.
+    <a href="mailto:codesultan369@gmail.com" target="_blank">nixlab.in@gmail.com</a>.
     </p>
-    <p> If you want know more about NixLab, please visit our website 
-        <a href="https://www.nixlab.co.in" target="_blank">here</a>.
+    <p> If you want know more about AlphaBeta, please visit our website 
+        <a href="https://alphabeta" target="_blank">here</a>.
     </p>
     <p>This is a auto-generated email. Please do not reply to this email.</p>
     <p>
     Regards, <br />
-    NixLab Technologies Team
+    AlphaBeta Team
     </p>`;
 
     try {
         await utility.sendEmail({
             email: email,
-            subject: `OTP From NixLab`,
+            subject: `OTP From AlphaBeta`,
             htmlMessage: htmlMessage,
         });
 
