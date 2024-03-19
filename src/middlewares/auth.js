@@ -64,7 +64,8 @@ authMiddleware.isAuthenticatedUser = catchAsyncError(async (req, res, next) => {
 
     return res.status(401).json({
       success: false,
-      message: ResponseMessages.INVALID_EXPIRED_TOKEN,
+      message: err,
+      // ResponseMessages.INVALID_EXPIRED_TOKEN,
     });
   }
 
