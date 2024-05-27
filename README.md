@@ -6,4 +6,4 @@ User authentication and authorization.
 CRUD operations for users, posts, and notifications.
 JWT-based authentication for secure API access.
 RESTful API design.
-Written in TypeScript for enhanced maintainability and type safety.
+
